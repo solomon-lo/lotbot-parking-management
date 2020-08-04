@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const [clear,setClear]=useState(false);
 
+  /*adding reservation: parses the input data so it can be entered into the function later*/
   const Add=(e)=>{
     e.preventDefault();
     if(clear) setClear(false);
@@ -17,6 +18,8 @@ function App() {
     }
   }
 
+
+  /*clearing reservation: parses the input data so it can be entered into the function later*/
   const Clear=(e)=>{
     e.preventDefault();
     if(clear) setClear(false);
