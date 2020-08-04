@@ -2,7 +2,6 @@ import React,{useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
-  const [currentSum,setCurrentSum]=useState(0);
   const [clear,setClear]=useState(false);
 
   const Add=(e)=>{
