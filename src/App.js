@@ -32,8 +32,11 @@ class App extends Component {
 
 /*adding reservation: parses the input data so it can be entered into the function later*/
 const Add = (e) => {
+  e.preventDefault();
   let phone_number = document.querySelector('#phone_number_input').value
   let license_plate = document.querySelector('#license_plate_input').value
+  console.log(phone_number)
+  console.log(license_plate)
   if ((phone_number == '') || (license_plate == '')) {
     console.log("no input")
   }
@@ -55,6 +58,7 @@ const Add = (e) => {
 // (license_plate == ''))
 /*clearing reservation: parses the input data so it can be entered into the function later*/
 const Clear = (e) => {
+  e.preventDefault();
   let phone_number = document.querySelector('#phone_number_input').value
   let license_plate = document.querySelector('#license_plate_input').value
   if ((phone_number == "") && (license_plate != "")) {
@@ -63,7 +67,8 @@ const Clear = (e) => {
     /*POST command*/
 
     axios.post('https://parking.wtf/api/delete-reservation', {
-      plateNumber: license_plate
+      phoneNumber: "",  
+    plateNumber: license_plate
     })
       .then(function (response) {
         console.log(response);
@@ -78,6 +83,7 @@ const Clear = (e) => {
 
     axios.post('https://parking.wtf/api/delete-reservation', {
       phoneNumber: phone_number,
+      plateNumber: ""
     })
       .then(function (response) {
         console.log(response);
