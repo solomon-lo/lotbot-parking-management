@@ -42,7 +42,6 @@ const Add = (e) => {
   }
 
   /*post command*/
-  const axios = require('axios')
 
   axios.post('https://parking.wtf/api/add-reservation', {
     phoneNumber: phone_number,
@@ -62,7 +61,6 @@ const Clear = (e) => {
     console.log("no input")
 
     /*POST command*/
-    const axios = require('axios')
 
     axios.post('https://parking.wtf/api/delete-reservation', {
       plateNumber: license_plate
