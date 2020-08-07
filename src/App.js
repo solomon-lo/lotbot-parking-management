@@ -1,21 +1,37 @@
 import React, { useState, useEffect, Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import { render } from '@testing-library/react';
 
 class App extends Component {
   constructor() {
     super()
   }
   componentWillMount() {
-    this.getData()
+  }
+  render() {
+    return (
+      <div className="App">
+        <div className="app-title">
+          <h1> Welcome to the ParkingManager! Enter in your phone number and license plate,
+          and select whether you want to book a reservation or cancel an existing one,
+              and our service will send you a confirmation text message!</h1>
+        </div>
+        <form>
+          <input type="text" id="phone_number_input" placeholder="Phone Number" />
+          <input type="text" id="license_plate_input" placeholder="License Plate" />
+          <button onClick={Add}>Add</button>
+          <button onClick={Clear}>Clear</button>
+        </form>
+      </div>
+    );
   }
 }
-const [clear, setClear] = useState(false);
+
+
 
 /*adding reservation: parses the input data so it can be entered into the function later*/
 const Add = (e) => {
-  e.preventDefault();
-  if (clear) setClear(false);
   let phone_number = document.querySelector('#phone_number_input').value
   let license_plate = document.querySelector('#license_plate_input').value
   if ((phone_number == '') || (license_plate == '')) {
@@ -40,11 +56,9 @@ const Add = (e) => {
 // (license_plate == ''))
 /*clearing reservation: parses the input data so it can be entered into the function later*/
 const Clear = (e) => {
-  e.preventDefault();
-  if (clear) setClear(false);
   let phone_number = document.querySelector('#phone_number_input').value
   let license_plate = document.querySelector('#license_plate_input').value
-  if (phone_number == '') {
+  if ((phone_number == "") && (license_plate != "")) {
     console.log("no input")
 
     /*POST command*/
@@ -58,7 +72,7 @@ const Clear = (e) => {
       })
   }
 
-  else if (license_plate == '') {
+  else if ((phone_number != '') && (license_plate == "")) {
     console.log("no input")
 
     /*POST command*/
@@ -73,21 +87,5 @@ const Clear = (e) => {
   }
   console.log("successfully deleted")
 }
-
-return (
-  <div className="App">
-    <div className="app-title">
-      <h1> Welcome to the ParkingManager! Enter in your phone number and license plate,
-      and select whether you want to book a reservation or cancel an existing one,
-          and our service will send you a confirmation text message!</h1>
-    </div>
-    <form>
-      <input type="text" id="phone_number_input" placeholder="Phone Number" />
-      <input type="text" id="license_plate_input" placeholder="License Plate" />
-      <button onClick={Add}>Add</button>
-      <button onClick={Clear}>Clear</button>
-    </form>
-  </div>
-);
 
 export default App;
