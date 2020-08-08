@@ -133,6 +133,13 @@ class Home extends Component {
                         {/*<button onClick={this.BookReservation}>Reserve</button>*/}
                     </div>
 
+                    <div className="marginBottomXLarge">
+                        <Link to="/waitlist">
+                            <button>View Position</button>
+                        </Link>
+                        {/*<button onClick={this.BookReservation}>Reserve</button>*/}
+                    </div>
+
                     </div>
                     <div className="standardWidth">
                         <div className="marginBottomMedium alignLeft">
