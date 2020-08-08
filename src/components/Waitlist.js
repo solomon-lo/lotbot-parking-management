@@ -1,8 +1,14 @@
 import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
 import "./Waitlist.css";
+import Home from "./Home.js";
  
-const Waitlist = () => {
+class Waitlist extends Component{
+    constructor() {
+        super();
+    }
+    componentWillMount() { }
+    render() {
     return (
         <div className="App">
           <div className="marginBottomLarge">
@@ -35,7 +41,7 @@ const Waitlist = () => {
             </div>
   
             <div className="marginBottomSmall alignRight">
-              <button className="cancel" onClick={Clear}>
+              <button className="cancel" onClick={Home.Clear}>
                 Cancel
               </button>
             </div>
@@ -48,6 +54,7 @@ const Waitlist = () => {
           </footer>
         </div>
       );
+    }
 }
  
 /*clearing reservation: parses the input data so it can be entered into the function later*/

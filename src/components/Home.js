@@ -1,11 +1,86 @@
 import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
 import "./Home.css";
+import { Link } from 'react-router-dom';
+
+
 
 class Home extends Component {
+
     constructor() {
         super();
+        this.state = {
+            global_license_plate: "",
+            global_phone_number: "",
+        }
+
     }
+
+
+
+
+
+
+    /*adding reservation: parses the input data so it can be entered into the function later*/
+    BookReservation = e => {
+        e.preventDefault();
+        let phone_number = document.querySelector("#phone_number_input").value;
+        let license_plate = document.querySelector("#license_plate_input").value;
+        this.setState({
+            global_license_plate: license_plate,
+            global_phone_number: phone_number,
+        })
+        console.log(phone_number);
+        console.log(license_plate);
+        if (phone_number == "" || license_plate == "") {
+            console.log("no input");
+        } else {
+            console.log("new user added");
+        }
+        /*post command*/
+        axios
+            .post("https://parking.wtf/api/add-reservation", {
+                phoneNumber: phone_number,
+                plateNumber: license_plate
+            })
+            .then(function (response) {
+                console.log(response);
+            });
+    };
+    // (license_plate == ''))
+    /*clearing reservation: parses the input data so it can be entered into the function later*/
+
+    Clear = e => {
+        e.preventDefault();
+        let phone_number = this.state.global_phone_number
+        let license_plate = this.state.global_license_plate
+        if (phone_number == "" && license_plate != "") {
+            console.log("no input");
+            /*POST command*/
+            axios
+                .post("https://parking.wtf/api/delete-reservation", {
+                    phoneNumber: "",
+                    plateNumber: license_plate
+                })
+                .then(function (response) {
+                    console.log(response);
+                });
+        } else if (phone_number != "" && license_plate == "") {
+            console.log("no input");
+            /*POST command*/
+            const axios = require("axios");
+            axios
+                .post("https://parking.wtf/api/delete-reservation", {
+                    phoneNumber: phone_number,
+                    plateNumber: ""
+                })
+                .then(function (response) {
+                    console.log(response);
+                });
+        }
+        console.log("successfully deleted");
+    };
+
     componentWillMount() { }
     render() {
         return (
@@ -33,7 +108,6 @@ class Home extends Component {
                                     type="text"
                                     id="full_name_input"
                                     placeholder="Full name"
-                                    placeHolder="License plate"
                                 />
                                 <input
                                     type="text"
@@ -60,7 +134,9 @@ class Home extends Component {
                         <p className="agreeText">I agree with the terms and conditions</p>
                     </div>
                     <div className="marginBottomXLarge">
-                        <button onClick={Add}>Reserve</button>
+                        <Link to="/waitlist"  onClick={this.BookReservation}>
+                            <button>Reserve</button>
+                        </Link>
                     </div>
                 </div>
                 <div className="standardWidth">
@@ -113,58 +189,4 @@ class Home extends Component {
         );
     }
 }
-/*adding reservation: parses the input data so it can be entered into the function later*/
-const Add = e => {
-    e.preventDefault();
-    let phone_number = document.querySelector("#phone_number_input").value;
-    let license_plate = document.querySelector("#license_plate_input").value;
-    console.log(phone_number);
-    console.log(license_plate);
-    if (phone_number == "" || license_plate == "") {
-        console.log("no input");
-    } else {
-        console.log("new user added");
-    }
-    /*post command*/
-    axios
-        .post("https://parking.wtf/api/add-reservation", {
-            phoneNumber: phone_number,
-            plateNumber: license_plate
-        })
-        .then(function (response) {
-            console.log(response);
-        });
-};
-// (license_plate == ''))
-/*clearing reservation: parses the input data so it can be entered into the function later*/
-const Clear = e => {
-    e.preventDefault();
-    let phone_number = document.querySelector("#phone_number_input").value;
-    let license_plate = document.querySelector("#license_plate_input").value;
-    if (phone_number == "" && license_plate != "") {
-        console.log("no input");
-        /*POST command*/
-        axios
-            .post("https://parking.wtf/api/delete-reservation", {
-                phoneNumber: "",
-                plateNumber: license_plate
-            })
-            .then(function (response) {
-                console.log(response);
-            });
-    } else if (phone_number != "" && license_plate == "") {
-        console.log("no input");
-        /*POST command*/
-        const axios = require("axios");
-        axios
-            .post("https://parking.wtf/api/delete-reservation", {
-                phoneNumber: phone_number,
-                plateNumber: ""
-            })
-            .then(function (response) {
-                console.log(response);
-            });
-    }
-    console.log("successfully deleted");
-};
 export default Home;
