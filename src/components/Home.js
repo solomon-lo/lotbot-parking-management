@@ -13,11 +13,10 @@ class Home extends Component {
             global_license_plate: "",
             global_phone_number: "",
         }
-
     }
 
 
-
+    
 
 
 
@@ -46,6 +45,9 @@ class Home extends Component {
             .then(function (response) {
                 console.log(response);
             });
+
+            window.location.href = "/waitlist"
+
     };
     // (license_plate == ''))
     /*clearing reservation: parses the input data so it can be entered into the function later*/
@@ -133,9 +135,10 @@ class Home extends Component {
                         </form>
                         <p className="agreeText">I agree with the terms and conditions</p>
                     </div>
+
                     <div className="marginBottomXLarge">
-                        <Link to="/waitlist"  onClick={this.BookReservation}>
-                            <button>Reserve</button>
+                    <Link to="/waitlist" onClick={(e) => this.BookReservation(e)}>
+                        <button>Reserve</button>
                         </Link>
                     </div>
                 </div>
