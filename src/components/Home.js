@@ -16,7 +16,7 @@ class Home extends Component {
     }
 
 
-    
+
 
 
 
@@ -45,8 +45,6 @@ class Home extends Component {
             .then(function (response) {
                 console.log(response);
             });
-
-            window.location.href = "/waitlist"
 
     };
     // (license_plate == ''))
@@ -88,14 +86,6 @@ class Home extends Component {
         return (
 
             <div className="App">
-                <div className="marginBottomLarge">
-                    <header>
-                        <h3 className="logo">
-                            <div className="lotbot_logo">lotbot</div>
-                        </h3>
-                    </header>
-                    <div className="icon_group"></div>
-                </div>
                 <div className="standardWidth">
                     <div className=" marginBottomMedium alignLeft">
                         <h1 className="grove">Park at Grove Mall</h1>
@@ -137,58 +127,60 @@ class Home extends Component {
                     </div>
 
                     <div className="marginBottomXLarge">
-                    <Link to="/waitlist" onClick={(e) => this.BookReservation(e)}>
-                        <button>Reserve</button>
+                        <Link to="/waitlist" onClick={(e) => this.BookReservation(e)}>
+                            <button>Reserve</button>
                         </Link>
+                        {/*<button onClick={this.BookReservation}>Reserve</button>*/}
                     </div>
-                </div>
-                <div className="standardWidth">
-                    <div className="marginBottomMedium alignLeft">
-                        <h1 className="about_us">About us</h1>
+
                     </div>
-                    <div className="marginBottomMedium">
-                        <div>
-                            <img alt="" className="" src="/blue_orange_car.png" />
+                    <div className="standardWidth">
+                        <div className="marginBottomMedium alignLeft">
+                            <h1 className="about_us">About us</h1>
                         </div>
-                        <h4 className="info_card_title">
-                            Unlock a new generation of in-person shopping 🔓
+                        <div className="marginBottomMedium">
+                            <div>
+                                <img alt="" className="" src="/blue_orange_car.png" />
+                            </div>
+                            <h4 className="info_card_title">
+                                Unlock a new generation of in-person shopping 🔓
           </h4>
-                        <p>
-                            Guarantee yourself a spot in the parking lot by booking in
-                            advance. This way, you will no longer have to circle the parking
-                            lot, waiting for a spot to free up.
+                            <p>
+                                Guarantee yourself a spot in the parking lot by booking in
+                                advance. This way, you will no longer have to circle the parking
+                                lot, waiting for a spot to free up.
           </p>
-                    </div>
-                    <div className="marginBottomMedium">
-                        <div>
-                            <img alt="" className="" src="/orange_gate.png" />
                         </div>
-                        <h4 className="info_card_title">
-                            Automatic licence plate recognition ✅
+                        <div className="marginBottomMedium">
+                            <div>
+                                <img alt="" className="" src="/orange_gate.png" />
+                            </div>
+                            <h4 className="info_card_title">
+                                Automatic licence plate recognition ✅
           </h4>
-                        <p>
-                            Uses computer vision to automatically recognize license plates
-                            that have been registered, cutting down on time wasted from
-                            manually checking license plates.
+                            <p>
+                                Uses computer vision to automatically recognize license plates
+                                that have been registered, cutting down on time wasted from
+                                manually checking license plates.
           </p>
-                    </div>
-                    <div className="marginBottomMedium">
-                        <div>
-                            <img alt="" className="" src="/phone_illustration.png" />
                         </div>
-                        <h4 className="info_card_title">Easy to use from anywhere 🗺️ </h4>
-                        <p>
-                            Both computers and mobile devices are easily supported. Reserve a
-                            spot easily and from anywhere!
+                        <div className="marginBottomMedium">
+                            <div>
+                                <img alt="" className="" src="/phone_illustration.png" />
+                            </div>
+                            <h4 className="info_card_title">Easy to use from anywhere 🗺️ </h4>
+                            <p>
+                                Both computers and mobile devices are easily supported. Reserve a
+                                spot easily and from anywhere!
           </p>
+                        </div>
                     </div>
+                    <footer>
+                        <p>
+                            <div className="footerText"> © 2020</div>
+                        </p>
+                    </footer>
                 </div>
-                <footer>
-                    <p>
-                        <div className="footerText"> © 2020</div>
-                    </p>
-                </footer>
-            </div>
         );
     }
 }

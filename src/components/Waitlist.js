@@ -2,6 +2,7 @@ import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
 import "./Waitlist.css";
 import Home from "./Home.js";
+import { Link } from 'react-router-dom';
  
 class Waitlist extends Component{
     constructor() {
@@ -41,9 +42,11 @@ class Waitlist extends Component{
             </div>
   
             <div className="marginBottomSmall alignRight">
+            <Link to="/">
               <button className="cancel" onClick={Home.Clear}>
                 Cancel
               </button>
+              </Link>
             </div>
           </div>
   
