@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@700&family=Ubuntu:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@700&family=Montserrat:wght@300&family=Ubuntu:wght@300&display=swap");
+
+.Home {
+  text-align: center;
+}
+
+.Home-link {
+  color: #61dafb;
+}
+
+.home-title {
+  max-width: 800px;
+  margin: auto;
+}
+
+h1,
+h4,
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+header,
+footer {
+  display: flex;
+  background-color: #091e5b;
+}
+
+.logo {
+  display: inline-block;
+  text-align: left;
+  color: #e1e1e1;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.lotbot_logo {
+  margin-left: 16pt;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.standardWidth {
+  width: 250pt;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.marginBottomXLarge {
+  margin-bottom: 56pt;
+}
+
+.marginBottomLarge {
+  margin-bottom: 48pt;
+}
+
+.marginBottomMedium {
+  margin-bottom: 32pt;
+}
+
+.marginBottomSmall {
+  margin-bottom: 12pt;
+}
+
+.grove {
+  font-family: "Karla", sans-serif;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10pt;
+}
+
+input {
+  margin-bottom: 12pt;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11pt;
+  padding-left: 6pt;
+  width: 100%;
+  height: 44px;
+}
+
+form {
+  display: inline-flex;
+}
+
+.agree {
+  margin-bottom: 0;
+  height: 8pt;
+}
+
+.agreeText {
+  display: inline-flex;
+  margin-left: 8pt;
+}
+
+button {
+  background: rgba(9, 30, 91, 0.9);
+  border-radius: 8px;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+  padding: 8pt 32pt;
+}
+
+.about_us {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: light;
+  font-size: 26px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.info_card_title {
+  margin-top: 12pt;
+  margin-bottom: 12pt;
+}
+
+img {
+  width: 294px;
+  height: 255px;
+}
+
+.footerText {
+  color: #e1e1e1;
+  margin-top: 16pt;
+  margin-bottom: 16pt;
+  font-family: "Ubuntu", sans-serif;
+  margin-left: 16pt;
+}
